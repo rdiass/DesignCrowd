@@ -6,6 +6,7 @@ C:\Dev\DesignCrowd\DesignCrowd.Data\obj\Debug\net8.0\DesignCrowd.Data.GeneratedM
 C:\Dev\DesignCrowd\DesignCrowd.Data\obj\Debug\net8.0\DesignCrowd.Data.AssemblyInfoInputs.cache
 C:\Dev\DesignCrowd\DesignCrowd.Data\obj\Debug\net8.0\DesignCrowd.Data.AssemblyInfo.cs
 C:\Dev\DesignCrowd\DesignCrowd.Data\obj\Debug\net8.0\DesignCrowd.Data.csproj.CoreCompileInputs.cache
+C:\Dev\DesignCrowd\DesignCrowd.Data\obj\Debug\net8.0\DesignCrowd.Data.sourcelink.json
 C:\Dev\DesignCrowd\DesignCrowd.Data\obj\Debug\net8.0\DesignCrowd.Data.dll
 C:\Dev\DesignCrowd\DesignCrowd.Data\obj\Debug\net8.0\refint\DesignCrowd.Data.dll
 C:\Dev\DesignCrowd\DesignCrowd.Data\obj\Debug\net8.0\DesignCrowd.Data.pdb
