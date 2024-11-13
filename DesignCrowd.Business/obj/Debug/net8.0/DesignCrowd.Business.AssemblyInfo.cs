@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("DesignCrowd.Business")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+a6bea93720b6f59c94a7ca68d85004125c959dd8")]
 [assembly: System.Reflection.AssemblyProductAttribute("DesignCrowd.Business")]
 [assembly: System.Reflection.AssemblyTitleAttribute("DesignCrowd.Business")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
