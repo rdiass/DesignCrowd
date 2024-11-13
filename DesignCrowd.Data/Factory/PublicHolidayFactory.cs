@@ -10,9 +10,17 @@ public class PublicHolidayFactory : IPublicHolidayFactory
         switch (ruleType)
         {
             case "FixedDate":
-                return new FixedDateHolidayRule(fixedDate.Value);
+                if (fixedDate.HasValue)
+                {
+                    return new FixedDateHolidayRule(fixedDate.Value);
+                }
+                throw new ArgumentException("fixedDate is null");
             case "Floating":
-                return new FloatingHolidayRule(dayOfWeek.Value, month.Value, weekOccurrence.Value);
+                if (dayOfWeek.HasValue && month.HasValue && weekOccurrence.HasValue)
+                {
+                    return new FloatingHolidayRule(dayOfWeek.Value, month.Value, weekOccurrence.Value);
+                }
+                throw new ArgumentException("dayOfWeek is null");
             default:
                 throw new ArgumentException("Invalid rule type");
         }

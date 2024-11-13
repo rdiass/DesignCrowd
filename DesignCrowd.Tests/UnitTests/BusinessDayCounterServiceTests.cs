@@ -41,7 +41,7 @@ public class BusinessDayCounterServiceTests
     [Theory]
     [InlineData("2013-10-07", "2013-10-09", 1)]
     [InlineData("2013-12-24", "2013-12-27", 0)]
-    [InlineData("2013-10-07", "2014-01-01", 59)]
+    [InlineData("2013-10-07", "2014-01-01", 59)]    
     public void BusinessDaysBetweenTwoDates_ShouldReturnCorrectBusinessDays(string firstDateString, string secondDateString, int expectedBusinessDays)
     {
         // Arrange
@@ -62,6 +62,7 @@ public class BusinessDayCounterServiceTests
     [InlineData("2013-12-24", "2013-12-27", 0)]
     [InlineData("2013-10-07", "2014-01-01", 59)]
     [InlineData("2023-12-31", "2024-01-07", 4)] // Test for floating holiday (New Year's Day on Monday)
+    [InlineData("2013-10-07", "2013-10-05", 0)]
     public void CalculateBusinessDays_ShouldReturnCorrectBusinessDays(string startDateString, string endDateString, int expectedBusinessDays)
     {
         // Arrange
@@ -79,7 +80,7 @@ public class BusinessDayCounterServiceTests
         holidayRules.AddRange(fixedHolidays);
 
         // Act
-        int actualBusinessDays = _sut.BusinessDaysBetweenTwoDates(startDate, endDate, holidayRules);
+        int actualBusinessDays = BusinessDayCounterService.BusinessDaysBetweenTwoDates(startDate, endDate, holidayRules);
 
         // Assert
         actualBusinessDays.Should().Be(expectedBusinessDays);

@@ -17,6 +17,7 @@ public class BusinessDayCounterService : IBusinessDayCounterService
     {
         if (secondDate <= firstDate)
         {
+            _logger.LogDebug("First date is greater then second date");
             return 0;
         }
 
@@ -50,14 +51,13 @@ public class BusinessDayCounterService : IBusinessDayCounterService
         return weekdays;
     }
 
-    public int BusinessDaysBetweenTwoDates(DateTime startDate, DateTime endDate, IEnumerable<PublicHolidayRule> holidayRules)
+    public static int BusinessDaysBetweenTwoDates(DateTime startDate, DateTime endDate, IEnumerable<PublicHolidayRule> holidayRules)
     {
         if (endDate <= startDate)
         {
             return 0;
         }
 
-        int totalDays = (endDate - startDate).Days - 1; // Exclude both start and end dates
         int businessDays = 0;
 
         for (DateTime date = startDate.AddDays(1); date < endDate; date = date.AddDays(1))

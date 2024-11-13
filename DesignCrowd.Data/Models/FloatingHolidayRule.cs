@@ -22,7 +22,7 @@ public class FloatingHolidayRule : PublicHolidayRule
                GetWeekOccurrence(date) == _weekOccurrence;
     }
 
-    private int GetWeekOccurrence(DateTime date)
+    private static int GetWeekOccurrence(DateTime date)
     {
         int firstDayOfMonth = (int)new DateTime(date.Year, date.Month, 1).DayOfWeek;
         int dayOfMonth = date.Day;

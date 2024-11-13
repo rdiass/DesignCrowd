@@ -14,9 +14,3 @@ app.UseSwaggerConfiguration();
 app.UseApiConfiguration();
 
 app.Run();
-
-public partial class Program {
-    protected Program()
-    {        
-    }
-}

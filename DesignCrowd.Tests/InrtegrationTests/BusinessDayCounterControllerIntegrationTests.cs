@@ -1,15 +1,16 @@
-﻿using FluentAssertions;
+﻿using DesignCrowd.Api.Controllers;
+using FluentAssertions;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Testing;
 using Newtonsoft.Json;
 
 namespace DesignCrowd.Tests.IntegrationTests;
 
-public class BusinessDayCounterControllerTests : IClassFixture<WebApplicationFactory<Program>>
+public class BusinessDayCounterControllerIntegrationTests : IClassFixture<WebApplicationFactory<BusinessDayCounterController>>
 {
-    private readonly WebApplicationFactory<Program> _factory;
+    private readonly WebApplicationFactory<BusinessDayCounterController> _factory;
 
-    public BusinessDayCounterControllerTests(WebApplicationFactory<Program> factory)
+    public BusinessDayCounterControllerIntegrationTests(WebApplicationFactory<BusinessDayCounterController> factory)
     {
         _factory = factory;
     }
@@ -39,8 +40,8 @@ public class BusinessDayCounterControllerTests : IClassFixture<WebApplicationFac
     }
 
     [Theory]
-    [InlineData("2013-10-07", "2013-10-05", 0)]
-    public async Task Given_InvalidDates_GetWeekdaysBetweenTwoDates_ReturnsBadRequestResult(string firstDateString, string secondDateString, int expectedBusinessDays)
+    [InlineData("2013-10-07", "2013-10-05")]
+    public async Task Given_InvalidDates_GetWeekdaysBetweenTwoDates_ReturnsBadRequestResult(string firstDateString, string secondDateString)
     {
         // Arrange
         var client = _factory.CreateClient();
@@ -52,6 +53,6 @@ public class BusinessDayCounterControllerTests : IClassFixture<WebApplicationFac
 
         // Assert
         response.StatusCode.Should().Be(System.Net.HttpStatusCode.BadRequest);
-        problemDetails.Detail.Should().Be("End date must be after start date");
+        problemDetails?.Detail.Should().Be("End date must be after start date");
     }
 }
