@@ -1,0 +1,88 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Dev\\DesignCrowd\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{763F3AA8-A507-41D6-AAE4-73A1A1900FD4}|DesignCrowd.Api\\DesignCrowd.Api.csproj|c:\\dev\\designcrowd\\designcrowd.api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{763F3AA8-A507-41D6-AAE4-73A1A1900FD4}|DesignCrowd.Api\\DesignCrowd.Api.csproj|solutionrelative:designcrowd.api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4A2C6DDC-C09A-4328-A4DA-8BD8FB87CC08}|DesignCrowd.Tests\\DesignCrowd.Tests.csproj|c:\\dev\\designcrowd\\designcrowd.tests\\inrtegrationtests\\businessdaycountercontrollertests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4A2C6DDC-C09A-4328-A4DA-8BD8FB87CC08}|DesignCrowd.Tests\\DesignCrowd.Tests.csproj|solutionrelative:designcrowd.tests\\inrtegrationtests\\businessdaycountercontrollertests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{763F3AA8-A507-41D6-AAE4-73A1A1900FD4}|DesignCrowd.Api\\DesignCrowd.Api.csproj|c:\\dev\\designcrowd\\designcrowd.api\\controllers\\businessdaycountercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{763F3AA8-A507-41D6-AAE4-73A1A1900FD4}|DesignCrowd.Api\\DesignCrowd.Api.csproj|solutionrelative:designcrowd.api\\controllers\\businessdaycountercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2D6F21BF-AD54-45B8-8163-0041B6383B34}|DesignCrowd.Business\\DesignCrowd.Business.csproj|c:\\dev\\designcrowd\\designcrowd.business\\services\\businessdaycounterservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2D6F21BF-AD54-45B8-8163-0041B6383B34}|DesignCrowd.Business\\DesignCrowd.Business.csproj|solutionrelative:designcrowd.business\\services\\businessdaycounterservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Dev\\DesignCrowd\\DesignCrowd.Api\\Program.cs",
+              "RelativeDocumentMoniker": "DesignCrowd.Api\\Program.cs",
+              "ToolTip": "C:\\Dev\\DesignCrowd\\DesignCrowd.Api\\Program.cs",
+              "RelativeToolTip": "DesignCrowd.Api\\Program.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAwAAAAeAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-13T08:09:04.872Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "BusinessDayCounterService.cs",
+              "DocumentMoniker": "C:\\Dev\\DesignCrowd\\DesignCrowd.Business\\Services\\BusinessDayCounterService.cs",
+              "RelativeDocumentMoniker": "DesignCrowd.Business\\Services\\BusinessDayCounterService.cs",
+              "ToolTip": "C:\\Dev\\DesignCrowd\\DesignCrowd.Business\\Services\\BusinessDayCounterService.cs",
+              "RelativeToolTip": "DesignCrowd.Business\\Services\\BusinessDayCounterService.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-13T07:40:35.889Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "BusinessDayCounterController.cs",
+              "DocumentMoniker": "C:\\Dev\\DesignCrowd\\DesignCrowd.Api\\Controllers\\BusinessDayCounterController.cs",
+              "RelativeDocumentMoniker": "DesignCrowd.Api\\Controllers\\BusinessDayCounterController.cs",
+              "ToolTip": "C:\\Dev\\DesignCrowd\\DesignCrowd.Api\\Controllers\\BusinessDayCounterController.cs",
+              "RelativeToolTip": "DesignCrowd.Api\\Controllers\\BusinessDayCounterController.cs",
+              "ViewState": "AQIAAAYAAAAAAAAAAAAAABQAAABEAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-13T07:40:24.231Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "BusinessDayCounterControllerTests.cs",
+              "DocumentMoniker": "C:\\Dev\\DesignCrowd\\DesignCrowd.Tests\\InrtegrationTests\\BusinessDayCounterControllerTests.cs",
+              "RelativeDocumentMoniker": "DesignCrowd.Tests\\InrtegrationTests\\BusinessDayCounterControllerTests.cs",
+              "ToolTip": "C:\\Dev\\DesignCrowd\\DesignCrowd.Tests\\InrtegrationTests\\BusinessDayCounterControllerTests.cs",
+              "RelativeToolTip": "DesignCrowd.Tests\\InrtegrationTests\\BusinessDayCounterControllerTests.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAuwAcAAAANAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-13T07:01:15.464Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

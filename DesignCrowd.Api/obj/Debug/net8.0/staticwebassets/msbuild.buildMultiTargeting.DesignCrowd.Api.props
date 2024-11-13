@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\build\DesignCrowd.Api.props" />
+</Project>
