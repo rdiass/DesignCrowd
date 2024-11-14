@@ -1,9 +1,12 @@
-﻿namespace DesignCrowd.Api.Swagger;
+﻿using System.Diagnostics.CodeAnalysis;
+
+namespace DesignCrowd.Api.Swagger;
 
 /// <summary>
 /// This attribute allows you to specify a default value for parameters in the Swagger TryItOut functionality.
 /// </summary>
 [AttributeUsage(AttributeTargets.All)]
+[ExcludeFromCodeCoverage]
 public class SwaggerTryItOutDefaulValueAttribute : Attribute
 {
     /// <summary>

@@ -1,5 +1,6 @@
 ﻿using Microsoft.OpenApi.Models;
 using Swashbuckle.AspNetCore.SwaggerGen;
+using System.Diagnostics.CodeAnalysis;
 using System.Reflection;
 
 namespace DesignCrowd.Api.Swagger;
@@ -7,6 +8,7 @@ namespace DesignCrowd.Api.Swagger;
 /// <summary>
 /// Swagger TryItOut functionality.
 /// </summary>
+[ExcludeFromCodeCoverage]
 public class SwaggerTryItOutDefaulValue : ISchemaFilter
 {
     /// <summary>
