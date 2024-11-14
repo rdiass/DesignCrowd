@@ -1,4 +1,5 @@
-﻿using DesignCrowd.Business.Interfaces;
+﻿using DesignCrowd.Api.Swagger;
+using DesignCrowd.Business.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 
 namespace DesignCrowd.Api.Controllers;
@@ -35,12 +36,15 @@ public class BusinessDayCounterController : ControllerBase
     /// It validates the input dates to ensure `secondDate` is after `firstDate`. On successful validation, it calls the injected
     /// `IBusinessDayCounterService` to calculate the number of weekdays and returns an `Ok` response with the count.
     /// If the dates are invalid or an unexpected error occurs, it logs the error and returns a corresponding error response.
+    /// E.g. between Monday 07-Oct-2013 and Wednesday 09-Oct-2013 is one weekday
     /// </remarks>
     [HttpGet(Name = "WeekdaysBetweenTwoDates")]
     [ProducesResponseType(typeof(int), StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status404NotFound)]
     [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-    public IActionResult GetWeekdaysBetweenTwoDates(DateTime firstDate, DateTime secondDate)
+    public IActionResult GetWeekdaysBetweenTwoDates(
+        [SwaggerTryItOutDefaulValue("2013-10-07")] DateTime firstDate, 
+        [SwaggerTryItOutDefaulValue("2013-10-09")]  DateTime secondDate)
     {
         try
         {

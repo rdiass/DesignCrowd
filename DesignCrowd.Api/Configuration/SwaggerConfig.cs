@@ -1,4 +1,5 @@
-﻿using System.Reflection;
+﻿using DesignCrowd.Api.Swagger;
+using System.Reflection;
 
 namespace DesignCrowd.Api.Configuration;
 
@@ -29,6 +30,9 @@ public static class SwaggerConfig
             var xmlFile = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
             var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);
             c.IncludeXmlComments(xmlPath);
+
+            // Add default values in the request
+            c.SchemaFilter<SwaggerTryItOutDefaulValue>();
         });
 
         return services;
