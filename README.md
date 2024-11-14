@@ -46,7 +46,7 @@ API Documentation for **WeekdaysBetweenTwoDates**
 
 ### Endpoint:
 
-	GET /BusinessDayCounter
+	GET /api/weekdays
 
 ### Parameters:
 
