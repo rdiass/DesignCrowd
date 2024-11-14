@@ -60,8 +60,7 @@ public class BusinessDayCounterServiceTests
     [Theory]
     [InlineData("2013-10-07", "2013-10-09", 1)]
     [InlineData("2013-12-24", "2013-12-27", 0)]
-    [InlineData("2013-10-07", "2014-01-01", 59)]
-    [InlineData("2023-12-31", "2024-01-07", 4)] // Test for floating holiday (New Year's Day on Monday)
+    [InlineData("2013-10-07", "2014-01-01", 59)]    
     [InlineData("2013-10-07", "2013-10-05", 0)]
     public void CalculateBusinessDays_ShouldReturnCorrectBusinessDays(string startDateString, string endDateString, int expectedBusinessDays)
     {
@@ -69,18 +68,38 @@ public class BusinessDayCounterServiceTests
         DateTime startDate = DateTime.Parse(startDateString);
         DateTime endDate = DateTime.Parse(endDateString);
 
-        // Add a floating holiday rule for New Year's Day on the first Monday of January        
+        var holidays = new[] { "2013-12-25", "2013-12-26" };
+        var holidayRules = holidays.Select(h => _publicHolidayFactory.CreateHolidayRule("FixedDate", DateTime.Parse(h))).ToList(); // For simple fixed date holidays
+
+        // Act
+        int actualBusinessDays = _sut.BusinessDaysBetweenTwoDates(startDate, endDate, holidayRules);
+
+        // Assert
+        actualBusinessDays.Should().Be(expectedBusinessDays);
+    }
+
+    [Theory]
+    [InlineData("2023-12-31", "2024-01-07", 4)]
+    public void Given_NewYearsDay_On_Monday_CalculateBusinessDays_ShouldReturnCorrectBusinessDays(string startDateString, string endDateString, int expectedBusinessDays)
+    {
+        // Arrange
+        DateTime startDate = DateTime.Parse(startDateString);
+        DateTime endDate = DateTime.Parse(endDateString);
+
+        // New Year's Day on January 1st every year, unless that is a Saturday or Sunday, in which case the holiday is the next Monday
+        // Adding 1 day of holiday in the first week of January
         var holidayRules = new List<PublicHolidayRule>
         {
             _publicHolidayFactory.CreateHolidayRule("Floating", null, DayOfWeek.Monday, 1, 1)
         };
 
-        var holidayStrings = new[] { "2013-12-25", "2013-12-26" };
-        var fixedHolidays = holidayStrings.Select(h => _publicHolidayFactory.CreateHolidayRule("FixedDate", DateTime.Parse(h))).ToList(); // For simple fixed date holidays
-        holidayRules.AddRange(fixedHolidays);
+        var holidays = new[] { "2013-12-25", "2013-12-26" };
+        var fixedHolidayRules = holidays.Select(h => _publicHolidayFactory.CreateHolidayRule("FixedDate", DateTime.Parse(h))).ToList(); // For simple fixed date holidays
+
+        holidayRules.AddRange(fixedHolidayRules);
 
         // Act
-        int actualBusinessDays = BusinessDayCounterService.BusinessDaysBetweenTwoDates(startDate, endDate, holidayRules);
+        int actualBusinessDays = _sut.BusinessDaysBetweenTwoDates(startDate, endDate, holidayRules);
 
         // Assert
         actualBusinessDays.Should().Be(expectedBusinessDays);

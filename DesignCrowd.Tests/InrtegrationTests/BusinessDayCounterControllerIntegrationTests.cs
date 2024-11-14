@@ -10,17 +10,13 @@ public class BusinessDayCounterControllerIntegrationTests : IClassFixture<WebApp
 {
     private readonly WebApplicationFactory<BusinessDayCounterController> _factory;
 
-    public BusinessDayCounterControllerIntegrationTests(WebApplicationFactory<BusinessDayCounterController> factory)
-    {
-        _factory = factory;
-    }
+    public BusinessDayCounterControllerIntegrationTests(WebApplicationFactory<BusinessDayCounterController> factory) => _factory = factory;
 
     [Theory]
     [InlineData("2013-10-07", "2013-10-09", 1)]
     [InlineData("2013-10-05", "2013-10-14", 5)]
     [InlineData("2013-10-07", "2014-01-01", 61)]
-    //[InlineData("2013-10-07", "2013-10-05", 0)]
-    public async Task GetWeekdaysBetweenTwoDates_ReturnsCorrectResult(string firstDateString, string secondDateString, int expectedBusinessDays)
+    public async Task Giver_ValidDates_GetWeekdaysBetweenTwoDates_ReturnsCorrectResult(string firstDateString, string secondDateString, int expectedBusinessDays)
     {
         // Arrange
         var client = _factory.CreateClient();
@@ -33,8 +29,6 @@ public class BusinessDayCounterControllerIntegrationTests : IClassFixture<WebApp
         var businessDays = int.Parse(content);
 
         // Assert
-        // You might need to assert the exact value based on your business logic and holiday rules.
-        // For this example, let's assume a hypothetical value:
         response.StatusCode.Should().Be(System.Net.HttpStatusCode.OK);
         businessDays.Should().Be(expectedBusinessDays);        
     }
@@ -53,6 +47,6 @@ public class BusinessDayCounterControllerIntegrationTests : IClassFixture<WebApp
 
         // Assert
         response.StatusCode.Should().Be(System.Net.HttpStatusCode.BadRequest);
-        problemDetails?.Detail.Should().Be("End date must be after start date");
+        problemDetails?.Detail.Should().Be("Second date must be after first date");
     }
 }

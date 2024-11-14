@@ -13,7 +13,7 @@ public class BusinessDayCounterService : IBusinessDayCounterService
         _logger = logger;
     }
 
-    public int WeekdaysBetweenTwoDates(DateTime firstDate, DateTime secondDate)
+    public int WeekdaysBetweenTwoDates(DateTime firstDate, DateTime secondDate, IEnumerable<PublicHolidayRule>? holidayRules = null)
     {
         if (secondDate <= firstDate)
         {
@@ -25,7 +25,7 @@ public class BusinessDayCounterService : IBusinessDayCounterService
 
         for (var date = firstDate.AddDays(1); date < secondDate; date = date.AddDays(1))
         {
-            if (IsBusinessDay(date))
+            if (IsBusinessDay(date, holidayRules ?? []))
             {
                 weekdays++;
             }
@@ -36,13 +36,13 @@ public class BusinessDayCounterService : IBusinessDayCounterService
 
     public int BusinessDaysBetweenTwoDates(DateTime firstDate, DateTime secondDate, IList<DateTime> publicHolidays)
     {
-        // Calculate weekdays as before
+        // Get weekdays
         int weekdays = WeekdaysBetweenTwoDates(firstDate, secondDate);
 
-        // Subtract holidays within the date range
+        // Removing holidays that is business day between two dates
         foreach (var holiday in publicHolidays)
         {
-            if (holiday > firstDate && holiday < secondDate && IsBusinessDay(holiday))
+            if (holiday > firstDate && holiday < secondDate && IsBusinessDay(holiday, []))
             {
                 weekdays--;
             }
@@ -51,24 +51,9 @@ public class BusinessDayCounterService : IBusinessDayCounterService
         return weekdays;
     }
 
-    public static int BusinessDaysBetweenTwoDates(DateTime startDate, DateTime endDate, IEnumerable<PublicHolidayRule> holidayRules)
+    public int BusinessDaysBetweenTwoDates(DateTime startDate, DateTime endDate, IEnumerable<PublicHolidayRule> holidayRules)
     {
-        if (endDate <= startDate)
-        {
-            return 0;
-        }
-
-        int businessDays = 0;
-
-        for (DateTime date = startDate.AddDays(1); date < endDate; date = date.AddDays(1))
-        {
-            if (IsBusinessDay(date, holidayRules))
-            {
-                businessDays++;
-            }
-        }
-
-        return businessDays;
+        return WeekdaysBetweenTwoDates(startDate, endDate, holidayRules);
     }
 
     private static bool IsBusinessDay(DateTime date, IEnumerable<PublicHolidayRule> holidayRules)
@@ -76,11 +61,5 @@ public class BusinessDayCounterService : IBusinessDayCounterService
         return date.DayOfWeek != DayOfWeek.Saturday &&
                date.DayOfWeek != DayOfWeek.Sunday &&
                !holidayRules.Any(rule => rule.IsHoliday(date));
-    }
-
-    private static bool IsBusinessDay(DateTime date)
-    {
-        return date.DayOfWeek != DayOfWeek.Saturday &&
-               date.DayOfWeek != DayOfWeek.Sunday;
     }
 }

@@ -1,5 +1,0 @@
-﻿C:\Dev\DesignCrowd\DesignCrowd.Data\Abstraction\PublicHolidayRule.cs
-C:\Dev\DesignCrowd\DesignCrowd.Data\Factory\IPublicHolidayFactory.cs
-C:\Dev\DesignCrowd\DesignCrowd.Data\Factory\PublicHolidayFactory.cs
-C:\Dev\DesignCrowd\DesignCrowd.Data\Models\FixedDateHolidayRule.cs
-C:\Dev\DesignCrowd\DesignCrowd.Data\Models\FloatingHolidayRule.cs

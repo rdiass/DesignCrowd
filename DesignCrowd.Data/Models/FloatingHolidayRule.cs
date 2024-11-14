@@ -6,7 +6,7 @@ public class FloatingHolidayRule : PublicHolidayRule
 {
     private readonly DayOfWeek _dayOfWeek;
     private readonly int _month;
-    private readonly int _weekOccurrence; // 1 for first, 2 for second, etc.
+    private readonly int _weekOccurrence;
 
     public FloatingHolidayRule(DayOfWeek dayOfWeek, int month, int weekOccurrence)
     {

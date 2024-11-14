@@ -26,7 +26,7 @@ public class BusinessDayCounterController : ControllerBase
             if (secondDate <= firstDate)
             {
                 _logger.LogError("Invalid date range");
-                return Problem("End date must be after start date", statusCode: StatusCodes.Status400BadRequest);                
+                return Problem("Second date must be after first date", statusCode: StatusCodes.Status400BadRequest);                
             }
 
             int businessDays = _businessDayCounterService.WeekdaysBetweenTwoDates(firstDate, secondDate);

@@ -45,10 +45,10 @@ public class HolidayRuleTests
     public void FloatingHolidayRule_IsHoliday_ReturnsTrueForCorrectDate()
     {
         // Arrange
-        var holidayRule = _sut.CreateHolidayRule("Floating", null, DayOfWeek.Monday, 1, 1); // New Year's Day on the first Monday of January
+        var holidayRule = _sut.CreateHolidayRule("Floating", null, DayOfWeek.Monday, 1, 1);
 
         // Act
-        var isHoliday = holidayRule.IsHoliday(new DateTime(2024, 1, 1)); // Assuming 1st Jan 2024 is a Monday
+        var isHoliday = holidayRule.IsHoliday(new DateTime(2024, 1, 1));
 
         // Assert
         isHoliday.Should().BeTrue();
@@ -61,7 +61,7 @@ public class HolidayRuleTests
         var holidayRule = _sut.CreateHolidayRule("Floating", null, DayOfWeek.Monday, 1, 1);
         
         // Act
-        var isHoliday = holidayRule.IsHoliday(new DateTime(2024, 1, 6)); // Assuming 1st Jan 2024 is a Sunday
+        var isHoliday = holidayRule.IsHoliday(new DateTime(2024, 1, 6));
 
         // Assert
         isHoliday.Should().BeFalse();

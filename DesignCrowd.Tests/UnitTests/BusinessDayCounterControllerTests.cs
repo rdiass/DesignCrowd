@@ -20,7 +20,7 @@ public class BusinessDayCounterControllerTests
         _mockBusinessDayCounterService = new Mock<IBusinessDayCounterService>();
         _logger = new Mock<ILogger<BusinessDayCounterController>>();
         _mockBusinessDayCounterService.Setup(
-            s => s.WeekdaysBetweenTwoDates(It.IsAny<DateTime>(), It.IsAny<DateTime>()))
+            s => s.WeekdaysBetweenTwoDates(It.IsAny<DateTime>(), It.IsAny<DateTime>(), null))
         .Throws<Exception>();
 
         _controller = new BusinessDayCounterController(_logger.Object, _mockBusinessDayCounterService.Object);
