@@ -1,6 +1,6 @@
 using DesignCrowd.Business.Interfaces;
 using DesignCrowd.Business.Services;
-using DesignCrowd.Data.Factory;
+using DesignCrowd.Business.Factory;
 using FluentAssertions;
 using Microsoft.Extensions.Logging;
 using Moq;

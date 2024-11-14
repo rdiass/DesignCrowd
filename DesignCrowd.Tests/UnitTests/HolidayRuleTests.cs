@@ -1,5 +1,5 @@
-﻿using DesignCrowd.Data.Factory;
-using DesignCrowd.Data.Models;
+﻿using DesignCrowd.Business.Factory;
+using DesignCrowd.Business.Models;
 using FluentAssertions;
 
 namespace DesignCrowd.Tests.UnitTests;

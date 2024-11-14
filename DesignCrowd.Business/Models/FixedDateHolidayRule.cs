@@ -1,6 +1,6 @@
 ﻿using DesignCrowd.Business.Interfaces;
 
-namespace DesignCrowd.Data.Models;
+namespace DesignCrowd.Business.Models;
 
 public class FixedDateHolidayRule : IPublicHolidayRule
 {

@@ -1,7 +1,7 @@
 ﻿using DesignCrowd.Business.Interfaces;
-using DesignCrowd.Data.Models;
+using DesignCrowd.Business.Models;
 
-namespace DesignCrowd.Data.Factory;
+namespace DesignCrowd.Business.Factory;
 
 public class PublicHolidayFactory : IPublicHolidayFactory
 {
