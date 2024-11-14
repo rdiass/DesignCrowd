@@ -1,7 +1,7 @@
-﻿using DesignCrowd.Data.Abstraction;
-using DesignCrowd.Data.Models;
+﻿using DesignCrowd.Business.Interfaces;
+using DesignCrowd.Business.Models;
 
-namespace DesignCrowd.Data.Factory;
+namespace DesignCrowd.Business.Factory;
 
 public class PublicHolidayFactory : IPublicHolidayFactory
 {
@@ -15,7 +15,7 @@ public class PublicHolidayFactory : IPublicHolidayFactory
     /// <param name="weekOccurrence">Optional week occurrence for the holiday rule (used for "Floating" rule type).</param>
     /// <returns>A PublicHolidayRule object representing the specified rule type and parameters.</returns>
     /// <exception cref="ArgumentException">Thrown if required parameters are missing or the rule type is invalid.</exception>
-    public PublicHolidayRule CreateHolidayRule(string ruleType, DateTime? fixedDate = null, DayOfWeek? dayOfWeek = null, int? month = null, int? weekOccurrence = null)
+    public IPublicHolidayRule CreateHolidayRule(string ruleType, DateTime? fixedDate = null, DayOfWeek? dayOfWeek = null, int? month = null, int? weekOccurrence = null)
     {
         switch (ruleType)
         {

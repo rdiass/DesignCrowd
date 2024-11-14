@@ -1,8 +1,8 @@
-﻿using DesignCrowd.Data.Abstraction;
+﻿using DesignCrowd.Business.Interfaces;
 
-namespace DesignCrowd.Data.Models;
+namespace DesignCrowd.Business.Models;
 
-public class FloatingHolidayRule : PublicHolidayRule
+public class FloatingHolidayRule : IPublicHolidayRule
 {
     private readonly DayOfWeek _dayOfWeek;
     private readonly int _month;
@@ -26,7 +26,7 @@ public class FloatingHolidayRule : PublicHolidayRule
     /// </summary>
     /// <param name="date">The date to be evaluated.</param>
     /// <returns>True if the date is the specified day of the week within the specified month and week occurrence; False otherwise.</returns>
-    public override bool IsHoliday(DateTime date)
+    public bool IsHoliday(DateTime date)
     {
         return date.DayOfWeek == _dayOfWeek &&
                date.Month == _month &&
