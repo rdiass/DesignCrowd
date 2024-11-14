@@ -1,5 +1,5 @@
+using DesignCrowd.Business.Interfaces;
 using DesignCrowd.Business.Services;
-using DesignCrowd.Data.Abstraction;
 using DesignCrowd.Data.Factory;
 using FluentAssertions;
 using Microsoft.Extensions.Logging;
@@ -88,7 +88,7 @@ public class BusinessDayCounterServiceTests
 
         // New Year's Day on January 1st every year, unless that is a Saturday or Sunday, in which case the holiday is the next Monday
         // Adding 1 day of holiday in the first week of January
-        var holidayRules = new List<PublicHolidayRule>
+        var holidayRules = new List<IPublicHolidayRule>
         {
             _publicHolidayFactory.CreateHolidayRule("Floating", null, DayOfWeek.Monday, 1, 1)
         };
