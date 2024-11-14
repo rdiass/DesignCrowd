@@ -85,7 +85,7 @@ public class HolidayRuleTests
     {
         // Act & Assert
         Action act = () => _sut.CreateHolidayRule("FixedDate", null);
-        act.Should().Throw<ArgumentException>().WithMessage("fixedDate is null");
+        act.Should().Throw<ArgumentException>().WithMessage("fixedDate is required for FixedDate rule type");
     }
 
     [Fact]
@@ -108,7 +108,7 @@ public class HolidayRuleTests
     {
         // Act & Assert
         Action act = () => _sut.CreateHolidayRule("Floating", null, null, 1, 3);
-        act.Should().Throw<ArgumentException>().WithMessage("dayOfWeek is null");
+        act.Should().Throw<ArgumentException>().WithMessage("dayOfWeek, month, and weekOccurrence are required for Floating rule type");
     }
 
     [Fact]
@@ -116,6 +116,6 @@ public class HolidayRuleTests
     {
         // Act & Assert
         Action act = () => _sut.CreateHolidayRule("InvalidType");
-        act.Should().Throw<ArgumentException>().WithMessage("Invalid rule type");
+        act.Should().Throw<ArgumentException>().WithMessage("Invalid rule type provided");
     }
 }
